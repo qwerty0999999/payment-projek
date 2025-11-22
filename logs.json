@@ -1,350 +1,602 @@
 [
   {
+    "time": "2025-11-22T10:05:00.163Z",
     "username": "super",
-    "role": "superuser",
-    "loginTime": "2025-11-22T00:25:36.773Z",
-    "logoutTime": null,
-    "duration": "Sedang Aktif..."
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 5"
   },
   {
-    "username": "admin",
-    "role": "admin",
-    "loginTime": "2025-11-22T00:25:49.491Z",
-    "logoutTime": "2025-11-22T00:28:09.523Z",
-    "duration": "2 Menit 20 Detik"
-  },
-  {
-    "username": "admin",
-    "role": "admin",
-    "loginTime": "2025-11-22T00:32:46.190Z",
-    "logoutTime": "2025-11-22T00:33:01.908Z",
-    "duration": "0 Menit 16 Detik"
-  },
-  {
+    "time": "2025-11-22T10:05:10.340Z",
     "username": "super",
-    "role": "superuser",
-    "loginTime": "2025-11-22T00:33:20.762Z",
-    "logoutTime": "2025-11-22T00:34:44.901Z",
-    "duration": "1 Menit 24 Detik"
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 6"
   },
   {
-    "username": "admin",
-    "role": "admin",
-    "loginTime": "2025-11-22T00:33:38.063Z",
-    "logoutTime": "2025-11-22T00:34:46.188Z",
-    "duration": "1 Menit 8 Detik"
-  },
-  {
+    "time": "2025-11-22T10:05:14.146Z",
     "username": "super",
-    "role": "superuser",
-    "loginTime": "2025-11-22T00:35:00.372Z",
-    "logoutTime": null,
-    "duration": "Sedang Aktif..."
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 2"
   },
   {
+    "time": "2025-11-22T10:05:31.918Z",
     "username": "super",
-    "loginTime": "2025-11-22T00:43:13.511Z",
-    "logoutTime": "2025-11-22T00:46:52.830Z",
-    "duration": "3 Menit"
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 7"
   },
   {
-    "username": "admin",
-    "loginTime": "2025-11-22T00:47:44.822Z",
-    "logoutTime": "2025-11-22T00:47:54.401Z",
-    "duration": "0 Menit"
-  },
-  {
+    "time": "2025-11-22T10:06:11.882Z",
     "username": "super",
-    "loginTime": "2025-11-22T00:48:04.025Z",
-    "logoutTime": "2025-11-22T00:58:13.829Z",
-    "duration": "10 Menit"
+    "action": "Add Product",
+    "detail": "Menambah produk: Paket B"
   },
   {
-    "username": "admin",
-    "loginTime": "2025-11-22T01:01:12.636Z",
-    "logoutTime": null,
-    "duration": "Aktif..."
-  },
-  {
+    "time": "2025-11-22T10:07:02.435Z",
     "username": "super",
-    "loginTime": "2025-11-22T01:02:43.349Z",
-    "logoutTime": "2025-11-22T01:04:53.830Z",
-    "duration": "2 Menit"
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 2"
   },
   {
+    "time": "2025-11-22T10:07:08.826Z",
     "username": "super",
-    "loginTime": "2025-11-22T01:06:57.603Z",
-    "logoutTime": "2025-11-22T01:08:18.852Z",
-    "duration": "1 Menit"
+    "action": "Add Product",
+    "detail": "Menambah produk: Paket B"
   },
   {
-    "username": "admin",
-    "loginTime": "2025-11-22T01:09:56.151Z",
-    "logoutTime": "2025-11-22T01:11:14.833Z",
-    "duration": "1 Menit"
-  },
-  {
-    "username": "admin",
-    "loginTime": "2025-11-22T01:11:52.362Z",
-    "logoutTime": "2025-11-22T01:14:09.821Z",
-    "duration": "2 Menit"
-  },
-  {
+    "time": "2025-11-22T10:08:41.117Z",
     "username": "super",
-    "loginTime": "2025-11-22T01:12:24.887Z",
-    "logoutTime": "2025-11-22T01:14:43.838Z",
-    "duration": "2 Menit"
-  },
-  {
-    "username": "super",
-    "loginTime": "2025-11-22T01:33:19.735Z",
-    "logoutTime": "2025-11-22T01:33:54.750Z",
-    "duration": "0 Menit"
-  },
-  {
-    "username": "admin",
-    "loginTime": "2025-11-22T01:33:59.352Z",
-    "logoutTime": "2025-11-22T01:34:06.462Z",
-    "duration": "0 Menit"
-  },
-  {
-    "username": "super",
-    "loginTime": "2025-11-22T01:36:48.747Z",
-    "logoutTime": "2025-11-22T01:38:01.836Z",
-    "duration": "1 Menit"
-  },
-  {
-    "username": "admin",
-    "loginTime": "2025-11-22T01:39:17.850Z",
-    "logoutTime": "2025-11-22T01:41:08.819Z",
-    "duration": "1 Menit"
-  },
-  {
-    "username": "super",
-    "loginTime": "2025-11-22T01:43:17.851Z",
-    "logoutTime": "2025-11-22T01:46:36.823Z",
-    "duration": "3 Menit"
-  },
-  {
-    "username": "admin",
-    "loginTime": "2025-11-22T01:43:54.733Z",
-    "logoutTime": "2025-11-22T01:45:42.827Z",
-    "duration": "1 Menit"
-  },
-  {
-    "username": "admin",
-    "loginTime": "2025-11-22T01:47:36.059Z",
-    "logoutTime": "2025-11-22T01:49:16.827Z",
-    "duration": "1 Menit"
-  },
-  {
-    "username": "super",
-    "loginTime": "2025-11-22T01:48:26.832Z",
-    "logoutTime": "2025-11-22T01:50:54.821Z",
-    "duration": "2 Menit"
-  },
-  {
-    "time": "2025-11-22T02:10:01.616Z",
-    "username": "admin",
-    "action": "Login",
-    "detail": "Masuk ke sistem"
-  },
-  {
-    "time": "2025-11-22T02:10:11.602Z",
-    "username": "admin",
-    "action": "Hapus Data",
-    "detail": "Menghapus data INV-29241"
-  },
-  {
-    "time": "2025-11-22T02:11:19.819Z",
-    "username": "admin",
-    "action": "Logout",
-    "detail": "Keluar dari sistem"
-  },
-  {
-    "time": "2025-11-22T09:22:24.595Z",
-    "username": "admin",
-    "action": "Login",
-    "detail": "Masuk ke sistem"
-  },
-  {
-    "time": "2025-11-22T09:23:23.939Z",
-    "username": "super",
-    "action": "Login",
-    "detail": "Masuk ke sistem"
-  },
-  {
-    "time": "2025-11-22T09:24:26.616Z",
-    "username": "admin",
     "action": "Terima",
-    "detail": "Terima pesanan INV-6800"
+    "detail": "Terima pesanan INV-67383"
   },
   {
-    "time": "2025-11-22T09:25:05.634Z",
-    "username": "admin",
-    "action": "Tolak",
-    "detail": "Tolak pesanan INV-10653"
-  },
-  {
-    "time": "2025-11-22T09:25:48.599Z",
-    "username": "admin",
-    "action": "Hapus Data",
-    "detail": "Menghapus data INV-10653"
-  },
-  {
-    "time": "2025-11-22T09:26:10.709Z",
-    "username": "admin",
-    "action": "Hapus Data",
-    "detail": "Menghapus data INV-6800"
-  },
-  {
-    "time": "2025-11-22T09:27:00.169Z",
+    "time": "2025-11-22T10:09:50.979Z",
     "username": "super",
     "action": "Logout",
     "detail": "Keluar dari sistem"
   },
   {
-    "time": "2025-11-22T09:28:30.262Z",
+    "time": "2025-11-22T10:16:06.416Z",
     "username": "super",
     "action": "Login",
     "detail": "Masuk ke sistem"
   },
   {
-    "time": "2025-11-22T09:29:05.391Z",
+    "time": "2025-11-22T10:17:40.124Z",
     "username": "super",
     "action": "Add User",
-    "detail": "Menambah user baru: qwe"
+    "detail": "Menambah user baru: lpllp"
   },
   {
-    "time": "2025-11-22T09:29:27.167Z",
+    "time": "2025-11-22T10:18:46.280Z",
+    "username": "super",
+    "action": "Logout",
+    "detail": "Keluar dari sistem"
+  },
+  {
+    "time": "2025-11-22T10:19:26.986Z",
+    "username": "admin",
+    "action": "Login",
+    "detail": "Masuk ke sistem"
+  },
+  {
+    "time": "2025-11-22T10:20:35.769Z",
     "username": "admin",
     "action": "Logout",
     "detail": "Keluar dari sistem"
   },
   {
-    "time": "2025-11-22T09:29:42.543Z",
-    "username": "qwe",
+    "time": "2025-11-22T10:21:43.243Z",
+    "username": "super",
     "action": "Login",
     "detail": "Masuk ke sistem"
   },
   {
-    "time": "2025-11-22T09:30:19.559Z",
+    "time": "2025-11-22T10:23:25.759Z",
+    "username": "super",
+    "action": "Logout",
+    "detail": "Keluar dari sistem"
+  },
+  {
+    "time": "2025-11-22T10:25:49.097Z",
+    "username": "super",
+    "action": "Login",
+    "detail": "Masuk ke sistem"
+  },
+  {
+    "time": "2025-11-22T10:27:46.737Z",
+    "username": "super",
+    "action": "Logout",
+    "detail": "Keluar dari sistem"
+  },
+  {
+    "time": "2025-11-22T10:28:09.513Z",
+    "username": "super",
+    "action": "Login",
+    "detail": "Masuk ke sistem"
+  },
+  {
+    "time": "2025-11-22T10:28:14.797Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:30:40.141Z",
+    "username": "super",
+    "action": "Export",
+    "detail": "Download Laporan Excel"
+  },
+  {
+    "time": "2025-11-22T10:32:16.276Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 2"
+  },
+  {
+    "time": "2025-11-22T10:32:51.085Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 3"
+  },
+  {
+    "time": "2025-11-22T10:34:06.733Z",
+    "username": "super",
+    "action": "Logout",
+    "detail": "Keluar dari sistem"
+  },
+  {
+    "time": "2025-11-22T10:35:30.549Z",
+    "username": "super",
+    "action": "Login",
+    "detail": "Masuk ke sistem"
+  },
+  {
+    "time": "2025-11-22T10:36:19.792Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: Paket B"
+  },
+  {
+    "time": "2025-11-22T10:37:04.163Z",
+    "username": "super",
+    "action": "Update Product",
+    "detail": "Update produk: Paket B"
+  },
+  {
+    "time": "2025-11-22T10:37:23.780Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: paket ayam"
+  },
+  {
+    "time": "2025-11-22T10:38:36.684Z",
     "username": "super",
     "action": "Delete User",
-    "detail": "Menghapus user: qwe"
+    "detail": "Menghapus user: lpllp"
   },
   {
-    "time": "2025-11-22T09:30:52.435Z",
-    "username": "qwe",
-    "action": "Terima",
-    "detail": "Terima pesanan INV-79014"
-  },
-  {
-    "time": "2025-11-22T09:32:07.141Z",
+    "time": "2025-11-22T10:39:59.711Z",
     "username": "super",
     "action": "Logout",
     "detail": "Keluar dari sistem"
   },
   {
-    "time": "2025-11-22T09:34:31.101Z",
-    "username": "qwe",
+    "time": "2025-11-22T10:42:38.714Z",
+    "username": "super",
+    "action": "Login",
+    "detail": "Masuk ke sistem"
+  },
+  {
+    "time": "2025-11-22T10:42:53.461Z",
+    "username": "super",
+    "action": "Terima",
+    "detail": "Terima pesanan INV-81550"
+  },
+  {
+    "time": "2025-11-22T10:42:57.611Z",
+    "username": "super",
+    "action": "Terima",
+    "detail": "Terima pesanan INV-44139"
+  },
+  {
+    "time": "2025-11-22T10:43:40.205Z",
+    "username": "super",
+    "action": "Update Product",
+    "detail": "Update produk: paket ayam"
+  },
+  {
+    "time": "2025-11-22T10:43:57.766Z",
+    "username": "super",
+    "action": "Update Product",
+    "detail": "Update produk: paket ayam"
+  },
+  {
+    "time": "2025-11-22T10:44:46.364Z",
+    "username": "super",
+    "action": "Update Product",
+    "detail": "Update produk: paket ayam"
+  },
+  {
+    "time": "2025-11-22T10:45:00.862Z",
+    "username": "super",
+    "action": "Update Product",
+    "detail": "Update produk: paket ayam"
+  },
+  {
+    "time": "2025-11-22T10:45:43.449Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: paket ajo"
+  },
+  {
+    "time": "2025-11-22T10:45:46.285Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:45:49.593Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:45:52.105Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:45:54.608Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:45:57.397Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:13.953Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:17.023Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:19.834Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:22.974Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:25.940Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:28.488Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:30.938Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:33.450Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:36.120Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:38.384Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:41.095Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:43.780Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:46.527Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:49.100Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:46:52.636Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:47:20.082Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 24"
+  },
+  {
+    "time": "2025-11-22T10:47:22.383Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 23"
+  },
+  {
+    "time": "2025-11-22T10:47:24.385Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 21"
+  },
+  {
+    "time": "2025-11-22T10:47:26.516Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 19"
+  },
+  {
+    "time": "2025-11-22T10:47:28.753Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 18"
+  },
+  {
+    "time": "2025-11-22T10:47:30.916Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 17"
+  },
+  {
+    "time": "2025-11-22T10:47:33.039Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 16"
+  },
+  {
+    "time": "2025-11-22T10:47:35.053Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 15"
+  },
+  {
+    "time": "2025-11-22T10:47:37.050Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 14"
+  },
+  {
+    "time": "2025-11-22T10:47:39.021Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 13"
+  },
+  {
+    "time": "2025-11-22T10:47:41.144Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 12"
+  },
+  {
+    "time": "2025-11-22T10:47:43.494Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 11"
+  },
+  {
+    "time": "2025-11-22T10:47:45.590Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 10"
+  },
+  {
+    "time": "2025-11-22T10:47:48.259Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 9"
+  },
+  {
+    "time": "2025-11-22T10:47:50.473Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 8"
+  },
+  {
+    "time": "2025-11-22T10:47:52.909Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 7"
+  },
+  {
+    "time": "2025-11-22T10:47:55.154Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 6"
+  },
+  {
+    "time": "2025-11-22T10:47:57.338Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 5"
+  },
+  {
+    "time": "2025-11-22T10:47:59.696Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 4"
+  },
+  {
+    "time": "2025-11-22T10:48:10.732Z",
+    "username": "super",
+    "action": "Add Product",
+    "detail": "Menambah produk: "
+  },
+  {
+    "time": "2025-11-22T10:49:15.682Z",
+    "username": "super",
     "action": "Logout",
     "detail": "Keluar dari sistem"
   },
   {
-    "time": "2025-11-22T09:36:02.778Z",
+    "time": "2025-11-22T10:51:56.826Z",
+    "username": "super",
+    "action": "Login",
+    "detail": "Masuk ke sistem"
+  },
+  {
+    "time": "2025-11-22T10:54:47.669Z",
+    "username": "super",
+    "action": "Login",
+    "detail": "Masuk ke sistem"
+  },
+  {
+    "time": "2025-11-22T10:56:11.663Z",
+    "username": "super",
+    "action": "Logout",
+    "detail": "Keluar dari sistem"
+  },
+  {
+    "time": "2025-11-22T11:04:23.819Z",
+    "username": "super",
+    "action": "Login",
+    "detail": "Masuk ke sistem"
+  },
+  {
+    "time": "2025-11-22T11:06:18.641Z",
+    "username": "super",
+    "action": "Logout",
+    "detail": "Keluar dari sistem"
+  },
+  {
+    "time": "2025-11-22T11:08:34.368Z",
     "username": "admin",
     "action": "Login",
     "detail": "Masuk ke sistem"
   },
   {
-    "time": "2025-11-22T09:37:40.082Z",
+    "time": "2025-11-22T11:08:40.453Z",
     "username": "admin",
-    "action": "Logout",
-    "detail": "Keluar dari sistem"
+    "action": "Terima",
+    "detail": "Terima pesanan INV-62972"
   },
   {
-    "time": "2025-11-22T09:39:55.860Z",
-    "username": "admin",
-    "action": "Login",
-    "detail": "Masuk ke sistem"
-  },
-  {
-    "time": "2025-11-22T09:41:05.032Z",
-    "username": "admin",
-    "action": "Logout",
-    "detail": "Keluar dari sistem"
-  },
-  {
-    "time": "2025-11-22T09:42:02.558Z",
-    "username": "admin",
-    "action": "Login",
-    "detail": "Masuk ke sistem"
-  },
-  {
-    "time": "2025-11-22T09:42:24.168Z",
+    "time": "2025-11-22T11:08:53.355Z",
     "username": "admin",
     "action": "Hapus Data",
-    "detail": "Menghapus data INV-79014"
+    "detail": "Menghapus data INV-62972"
   },
   {
-    "time": "2025-11-22T09:44:29.011Z",
+    "time": "2025-11-22T11:09:25.038Z",
+    "username": "admin",
+    "action": "Hapus Data",
+    "detail": "Menghapus data INV-10001"
+  },
+  {
+    "time": "2025-11-22T11:10:23.325Z",
     "username": "admin",
     "action": "Logout",
     "detail": "Keluar dari sistem"
   },
   {
-    "time": "2025-11-22T09:45:02.333Z",
-    "username": "admin",
+    "time": "2025-11-22T11:10:35.469Z",
+    "username": "super",
     "action": "Login",
     "detail": "Masuk ke sistem"
   },
   {
-    "time": "2025-11-22T09:47:20.417Z",
-    "username": "admin",
-    "action": "Terima",
-    "detail": "Terima pesanan INV-23414"
+    "time": "2025-11-22T11:11:02.143Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 20"
   },
   {
-    "time": "2025-11-22T09:49:24.974Z",
-    "username": "admin",
+    "time": "2025-11-22T11:11:05.763Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 22"
+  },
+  {
+    "time": "2025-11-22T11:11:09.317Z",
+    "username": "super",
+    "action": "Delete Product",
+    "detail": "Menghapus produk ID: 23"
+  },
+  {
+    "time": "2025-11-22T11:12:41.626Z",
+    "username": "super",
     "action": "Logout",
     "detail": "Keluar dari sistem"
   },
   {
-    "time": "2025-11-22T09:51:38.353Z",
+    "time": "2025-11-22T11:18:22.858Z",
     "username": "super",
     "action": "Login",
     "detail": "Masuk ke sistem"
   },
   {
-    "time": "2025-11-22T09:52:14.460Z",
+    "time": "2025-11-22T11:22:38.615Z",
     "username": "super",
-    "action": "Add Product",
-    "detail": "Menambah produk: ayam"
+    "action": "Logout",
+    "detail": "Keluar dari sistem"
   },
   {
-    "time": "2025-11-22T09:52:16.170Z",
+    "time": "2025-11-22T11:27:51.890Z",
     "username": "super",
-    "action": "Add Product",
-    "detail": "Menambah produk: ayam"
+    "action": "Login",
+    "detail": "Masuk ke sistem"
   },
   {
-    "time": "2025-11-22T09:52:16.417Z",
+    "time": "2025-11-22T11:29:05.015Z",
     "username": "super",
-    "action": "Add Product",
-    "detail": "Menambah produk: ayam"
+    "action": "Logout",
+    "detail": "Keluar dari sistem"
   },
   {
-    "time": "2025-11-22T09:52:32.143Z",
+    "time": "2025-11-22T11:32:41.018Z",
     "username": "super",
-    "action": "Add Product",
-    "detail": "Menambah produk: ayam"
+    "action": "Login",
+    "detail": "Masuk ke sistem"
   },
   {
-    "time": "2025-11-22T09:52:32.314Z",
+    "time": "2025-11-22T11:34:56.449Z",
     "username": "super",
-    "action": "Add Product",
-    "detail": "Menambah produk: ayam"
+    "action": "Logout",
+    "detail": "Keluar dari sistem"
   }
 ]

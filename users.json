@@ -3,7 +3,7 @@
     "username": "super",
     "password": "super123",
     "role": "superuser",
-    "isOnline": true
+    "isOnline": false
   },
   {
     "username": "admin",

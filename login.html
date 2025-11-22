@@ -24,14 +24,14 @@
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required placeholder="admin">
                 
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; margin-bottom: 5px;">
-                    <label for="password" style="margin:0;">Password</label>
-                    <a href="lupa_password.html" style="font-size: 12px; color: #4e54c8; text-decoration: none;">Lupa Password?</a>
-                </div>
-
+                <label for="password">Password</label>
                 <input type="password" id="password" name="password" required placeholder="12345">
                 
-                <button type="submit" class="sign-in" id="btnSubmit">Sign In</button>
+                <div style="text-align: right; margin-top: 5px; margin-bottom: 15px;">
+                    <a href="lupa_password.html" style="font-size: 13px; color: #4e54c8; text-decoration: none; font-weight: 500;">Lupa Password?</a>
+                </div>
+
+                <button type="submit" class="sign-in" id="btnSubmit" style="margin-top: 5px;">Sign In</button>
             </form>
             
             <p id="errorMsg" style="color: #ff4757; display: none; margin-top: 10px; font-weight: bold; font-size: 14px;">Username atau Password Salah!</p>

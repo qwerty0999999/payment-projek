@@ -9,43 +9,15 @@
   {
     "id": 2,
     "name": "Paket B",
-    "price": 200000,
-    "icon": "📦",
-    "stock": 9
+    "price": "200000",
+    "stock": "1",
+    "icon": "📦"
   },
   {
     "id": 3,
-    "name": "ayam",
-    "price": "12000",
-    "stock": "23",
-    "icon": "📦"
-  },
-  {
-    "id": 4,
-    "name": "ayam",
-    "price": "12000",
-    "stock": "23",
-    "icon": "📦"
-  },
-  {
-    "id": 5,
-    "name": "ayam",
-    "price": "12000",
-    "stock": "23",
-    "icon": "📦"
-  },
-  {
-    "id": 6,
-    "name": "ayam",
-    "price": "12000",
-    "stock": "23",
-    "icon": "📦"
-  },
-  {
-    "id": 7,
-    "name": "ayam",
-    "price": "12000",
-    "stock": "23",
+    "name": "paket ayam",
+    "price": "500000000",
+    "stock": "1",
     "icon": "📦"
   }
 ]

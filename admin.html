@@ -21,6 +21,8 @@
     <style>
         /* --- STYLE UTAMA --- */
         body { font-family: 'Poppins', sans-serif; background-color: #f3f4f6; margin: 0; display: flex; height: 100vh; overflow: hidden; }
+        
+        /* SIDEBAR */
         .sidebar { width: 260px; background: linear-gradient(180deg, #1e293b, #0f172a); color: white; display: flex; flex-direction: column; flex-shrink: 0; }
         .brand { padding: 25px; font-size: 20px; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); display:flex; align-items:center; gap:10px; }
         .live-dot { width: 10px; height: 10px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; animation: pulse 2s infinite; }
@@ -32,21 +34,76 @@
         .menu-link.active { background: #3b82f6; color: white; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4); }
         .user-profile { padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); display:flex; align-items:center; gap:10px; }
         .avatar { width: 35px; height: 35px; background: white; border-radius: 50%; color: #333; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+
+        /* KONTEN KANAN */
         .main-content { flex: 1; overflow-y: auto; padding: 30px; position: relative; }
         .view-section { display: none; animation: fadeIn 0.3s; }
         .view-section.active { display: block; }
         .top-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
         .page-title { font-size: 24px; font-weight: 600; color: #1e293b; margin: 0; }
+
+        /* CARDS */
         .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
         .stat-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .stat-card h3 { margin: 0; font-size: 12px; color: #64748b; text-transform: uppercase; }
+        .stat-card .value { font-size: 28px; font-weight: 700; color: #0f172a; margin-top: 5px; }
+        .card-blue { border-left: 4px solid #3b82f6; } .card-green { border-left: 4px solid #10b981; } 
+        .card-red { border-left: 4px solid #ef4444; } .card-yellow { border-left: 4px solid #f59e0b; }
+        
         .chart-container { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 30px; height: 350px; }
         .card-box { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 20px; }
+
+        /* FORM & TABLE */
         table { width: 100%; border-collapse: collapse; margin-top: 15px; }
         th { padding: 15px; background: #f8fafc; color: #64748b; font-size: 13px; font-weight: 600; text-align: left; }
         td { padding: 15px; border-bottom: 1px solid #e2e8f0; font-size: 14px; vertical-align: middle; }
-        .form-input { width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; margin-bottom:10px;}
-        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; align-items: end; }
-        .btn-primary { background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+        
+        /* --- PERBAIKAN ALIGNMENT FORM --- */
+        .product-form-grid { 
+            display: grid; 
+            grid-template-columns: 2fr 1.5fr 1fr auto; /* Proporsi kolom lebih seimbang */
+            gap: 15px; 
+            align-items: end; /* Kunci agar semua elemen rata bawah */
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-label {
+            font-size: 12px; 
+            font-weight: bold; 
+            margin-bottom: 8px; 
+            height: 18px; /* Tinggi label dikunci biar sejajar */
+            display: block;
+        }
+
+        .form-input { 
+            width: 100%; 
+            padding: 0 15px; 
+            height: 45px; /* Tinggi input fix */
+            border: 1px solid #e2e8f0; 
+            border-radius: 6px; 
+            box-sizing: border-box; 
+            font-size: 14px; 
+            margin: 0;
+        }
+        
+        .btn-primary { 
+            background: #3b82f6; color: white; border: none; padding: 0 25px; 
+            border-radius: 6px; cursor: pointer; font-weight: 600; transition: 0.2s; 
+            height: 45px; /* Tinggi tombol SAMA dengan input */
+            line-height: 45px; 
+            white-space: nowrap;
+        }
+        .btn-primary:hover { background: #2563eb; }
+
+        @media screen and (max-width: 768px) {
+            .product-form-grid { grid-template-columns: 1fr; }
+        }
+
+        /* UTILS */
         .badge { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; }
         .bg-lunas { background: #d1fae5; color: #065f46; } .bg-pending { background: #ffedd5; color: #9a3412; } .bg-ditolak { background: #fee2e2; color: #991b1b; }
         .btn-xs { padding: 5px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; border: none; color: white; font-weight: bold; margin-right: 5px; }
@@ -59,22 +116,22 @@
         /* MODALS */
         .modal-backdrop { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; backdrop-filter: blur(3px); }
         .modal-box { background: white; width: 350px; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.2); animation: zoomIn 0.3s; }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes zoomIn { from { transform:scale(0.9); opacity:0; } to { transform:scale(1); opacity:1; } }
+        #toast { visibility: hidden; min-width: 250px; background-color: #1e293b; color: #fff; text-align: center; border-radius: 50px; padding: 12px 25px; position: fixed; z-index: 9999; left: 50%; bottom: 30px; transform: translateX(-50%); font-size: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+
+        @media screen and (max-width: 768px) { .sidebar { position: fixed; left: -260px; z-index: 1000; height: 100%; } .sidebar.open { left: 0; } .main-content { width: 100%; padding: 15px; } }
     </style>
 </head>
 <body>
 
-    <div id="logoutModal" class="modal-backdrop" style="z-index: 9999;"><div class="modal-box"><h3 style="margin:0 0 10px;">Logging Out...</h3><p>Sampai jumpa!</p></div></div>
-    
-    <div id="successAlertModal" class="modal-backdrop" style="z-index: 10000;">
-        <div class="modal-box">
-            <div style="font-size: 50px; color: #10b981; margin-bottom: 10px;">✅</div>
-            <h3 style="margin: 0 0 10px;">Berhasil!</h3>
-            <p id="successMsg" style="color: #666; margin-bottom: 20px;">Aksi selesai.</p>
-        </div>
-    </div>
+    <div id="toast">✅ Kode berhasil disalin!</div>
 
+    <div id="logoutModal" class="modal-backdrop" style="z-index: 9999;"><div class="modal-box"><h3 style="margin:0 0 10px;">Logging Out...</h3><p>Sampai jumpa!</p></div></div>
+    <div id="successAlertModal" class="modal-backdrop" style="z-index: 10000;"><div class="modal-box"><div style="font-size: 50px; color: #10b981; margin-bottom: 10px;">✅</div><h3 style="margin: 0 0 10px;">Berhasil!</h3><p id="successMsg" style="color: #666; margin-bottom: 20px;">Aksi selesai.</p></div></div>
     <div id="confirmModal" class="modal-backdrop"><div class="modal-box"><div id="modalIcon" style="font-size:50px; margin-bottom:10px;">❓</div><h3 id="modalTitle" style="margin:0 0 10px;">Konfirmasi?</h3><p id="modalDesc" style="color:#666;">...</p><div style="display:flex; gap:10px; justify-content:center; margin-top:20px;"><button onclick="closeModal('confirmModal')" style="padding:8px 20px; border:1px solid #ddd; background:white; border-radius:6px; cursor:pointer;">Batal</button><button id="btnConfirmAction" onclick="" style="color:white; border:none; padding:8px 20px; border-radius:6px; cursor:pointer;">Ya</button></div></div></div>
-    <div id="doubleCheckModal" class="modal-backdrop" style="background: rgba(220, 38, 38, 0.2);"><div class="modal-box" style="border: 2px solid #dc2626;"><div style="font-size:50px; margin-bottom:10px;">⚠️</div><h3 style="margin:0 0 10px; color: #dc2626;">Yakin 100%?</h3><p style="color:#666; margin-bottom:20px; font-size: 13px;">Data ini akan <b>dihapus permanen</b>.</p><div style="display:flex; gap:10px; justify-content:center;"><button onclick="closeModal('doubleCheckModal')" style="background:#f1f5f9; color:#333; border:none; padding:10px 20px; border-radius:6px; cursor:pointer;">Batal</button><button onclick="finalDelete()" style="background:#dc2626; color:white; border:none; padding:8px 20px; border-radius:6px; cursor:pointer;">YA, MUSNAHKAN</button></div></div></div>
+    <div id="doubleCheckModal" class="modal-backdrop" style="background: rgba(220, 38, 38, 0.2);"><div class="modal-box" style="border: 2px solid #dc2626;"><div style="font-size:50px; margin-bottom:10px;">⚠️</div><h3 style="margin:0 0 10px; color: #dc2626;">Yakin 100%?</h3><p style="color:#666; margin-bottom:20px; font-size: 13px;">Data ini akan <b>dihapus permanen</b>.</p><div style="display:flex; gap:10px; justify-content:center;"><button onclick="closeModal('doubleCheckModal')" style="background:#f1f5f9; color:#333; border:none; padding:10px 20px; border-radius:6px; cursor:pointer;">Batal</button><button onclick="finalDelete()" style="background:#dc2626; color:white; border-none; padding:8px 20px; border-radius:6px; cursor:pointer;">YA, MUSNAHKAN</button></div></div></div>
     <div id="imageModal" onclick="this.style.display='none'" class="modal-backdrop"><img id="modalImg" src="" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow: 0 0 30px rgba(255,255,255,0.2);"></div>
 
     <div class="sidebar">
@@ -92,7 +149,7 @@
         <div class="user-profile">
             <div class="avatar">👤</div>
             <div style="flex:1;"><div id="sideUsername" style="font-size:14px; font-weight:bold;">Guest</div><div id="sideRole" style="font-size:11px; color:#94a3b8;">...</div></div>
-            <button onclick="manualLogout()" style="background:none; border: none; color:#ef4444; cursor:pointer; font-size:18px;" title="Logout">⏻</button>
+            <button onclick="manualLogout()" style="background:none; border:none; color:#ef4444; cursor:pointer; font-size:18px;" title="Logout">⏻</button>
         </div>
     </div>
 
@@ -145,14 +202,7 @@
                 </div>
                 <div style="max-height: 350px; overflow-y: auto;">
                     <table>
-                        <thead>
-                            <tr>
-                                <th width="100">Waktu</th>
-                                <th>Admin</th>
-                                <th width="100">Aksi</th>
-                                <th>Detail</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th width="100">Waktu</th><th>Admin</th><th width="100">Aksi</th><th>Detail</th></tr></thead>
                         <tbody id="logTableBody"></tbody>
                     </table>
                 </div>
@@ -161,23 +211,41 @@
 
         <div id="view-products" class="view-section">
             <div class="top-header"><h2 class="page-title">Kelola Produk</h2></div>
+            
             <div class="card-box">
-                <h4>Tambah/Edit Produk</h4>
-                <input type="hidden" id="prodId">
-                <div class="form-grid" style="align-items: flex-end;">
-                    <div><label style="font-size:12px; font-weight:bold;">Nama Produk:</label><input type="text" id="prodNameInput" class="form-input" placeholder="Nama Paket"></div>
-                    <div><label style="font-size:12px; font-weight:bold;">Harga (Rp):</label><input type="number" id="prodPriceInput" class="form-input" placeholder="0"></div>
-                    <div><label style="font-size:12px; font-weight:bold;">Stok:</label><input type="number" id="prodStockInput" class="form-input" placeholder="0"></div>
-                    <button onclick="saveProduct()" class="btn-primary" style="height: 45px;">💾 Simpan</button>
-                </div>
-            </div>
-            <div class="card-box">
-                <h4>Daftar Produk</h4>
+                <h4>Daftar Produk Tersedia</h4>
                 <div style="overflow-x: auto;">
                     <table>
-                        <thead><tr><th>Nama Produk</th><th>Harga</th><th>Stok</th><th style="text-align:center;">Aksi</th></tr></thead>
+                        <thead><tr><th>Nama Produk</th><th>Harga (Rp)</th><th>Stok</th><th style="text-align:center;">Aksi</th></tr></thead>
                         <tbody id="productTableBody"></tbody>
                     </table>
+                </div>
+            </div>
+
+            <div class="card-box" id="productFormSection">
+                <h4 id="prodFormTitle" style="margin-bottom: 15px;">➕ Tambah Produk Baru</h4>
+                <input type="hidden" id="prodId">
+                
+                <div class="product-form-grid">
+                    <div class="input-group">
+                        <span class="input-label">Nama Produk</span>
+                        <input type="text" id="prodNameInput" class="form-input" placeholder="Contoh: Paket Sultan">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-label">Harga (Rp)</span>
+                        <input type="text" id="prodPriceInput" class="form-input" placeholder="0" onkeyup="formatCurrency(this)">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-label">Stok</span>
+                        <input type="number" id="prodStockInput" class="form-input" placeholder="0">
+                    </div>
+                    <div>
+                        <button onclick="saveProduct()" class="btn-primary" style="width: 100%;">💾 Simpan Produk</button>
+                    </div>
+                </div>
+                
+                <div id="cancelEditContainer" style="display:none; text-align:right; margin-top:10px;">
+                    <button onclick="resetProductForm()" style="background:none; border:none; color:#ef4444; cursor:pointer; text-decoration:underline;">Batal Edit</button>
                 </div>
             </div>
         </div>
@@ -193,9 +261,15 @@
             document.getElementById('successMsg').innerText = msg; 
             const m = document.getElementById('successAlertModal'); 
             m.style.display = 'flex'; 
-            setTimeout(() => m.style.display='none', 1500); // TUTUP OTOMATIS 1.5 DETIK
+            setTimeout(() => m.style.display='none', 1500);
         }
         
+        function formatCurrency(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value === '') { input.value = ''; return; }
+            input.value = new Intl.NumberFormat('id-ID').format(value);
+        }
+
         function loadData() { fetch('/api/data').then(r=>r.json()).then(data => { allData = data.reverse(); updateTable(allData); updateStats(data); renderChart(data); }); }
         function updateTable(data) {
             const tbody = document.getElementById('trxBody'); tbody.innerHTML = '';
@@ -217,21 +291,11 @@
             });
         }
 
-        // USER & LOGS
         function loadUsers() { fetch('/api/users').then(r=>r.json()).then(users => { const tbody = document.getElementById('userTableBody'); tbody.innerHTML = ''; users.forEach(u => { let status = u.isOnline ? '<span class="status-online">● Online</span>' : '<span style="color:#ccc;">Offline</span>'; tbody.innerHTML += `<tr><td><b>${u.username}</b></td><td>${u.role}</td><td>${status}</td><td><button onclick="deleteUser('${u.username}')" style="color:red; border:none; background:none; cursor:pointer;">Hapus</button></td></tr>`; }); }); }
-        function loadLogs() { 
-            fetch('/api/logs').then(r=>r.json()).then(logs => { 
-                const tbody = document.getElementById('logTableBody'); tbody.innerHTML = ''; 
-                logs.slice().reverse().slice(0, 20).forEach(l => { 
-                    const timeStr = new Date(l.time).toLocaleTimeString('id-ID', {hour:'2-digit', minute:'2-digit', day:'2-digit', month:'short'}); 
-                    tbody.innerHTML += `<tr><td><span class="log-time">${timeStr}</span></td><td><b class="log-action">${l.username}</b></td><td class="log-action">${l.action || '-'}</td><td class="log-detail">${l.detail || '-'}</td></tr>`; 
-                }); 
-            }); 
-        }
+        function loadLogs() { fetch('/api/logs').then(r=>r.json()).then(logs => { const tbody = document.getElementById('logTableBody'); tbody.innerHTML = ''; logs.slice().reverse().slice(0, 20).forEach(l => { const timeStr = new Date(l.time).toLocaleTimeString('id-ID', {hour:'2-digit', minute:'2-digit', day:'2-digit', month:'short'}); tbody.innerHTML += `<tr><td><span class="log-time">${timeStr}</span></td><td><b class="log-action">${l.username || '-'}</b></td><td class="log-action">${l.action || '-'}</td><td class="log-detail">${l.detail || '-'}</td></tr>`; }); }); }
         function addUser() { const u = document.getElementById('newUsername').value; const p = document.getElementById('newPassword').value; const r = document.getElementById('newRole').value; fetch('/api/users/add', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ newUser: u, newPass: p, newRole: r }) }).then(r=>r.json()).then(res => { if(res.success) { showSuccess('User dibuat!'); loadUsers(); } else alert(res.message); }); }
         function deleteUser(u) { if(confirm('Hapus user?')) fetch('/api/users/delete', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ targetUser: u }) }).then(r=>r.json()).then(res => { if(res.success) { showSuccess('User Dihapus!'); loadUsers(); } else alert(res.message); }); }
 
-        // PRODUCTS
         function loadProductsTable() {
             fetch('/api/products').then(r=>r.json()).then(products => {
                 productList = products; const tbody = document.getElementById('productTableBody'); tbody.innerHTML = '';
@@ -243,21 +307,30 @@
         }
         function editProduct(id) {
             const p = productList.find(x => x.id == id);
-            document.getElementById('prodModalTitle').innerText = `Edit ${p.name}`;
-            document.getElementById('prodId').value=p.id; document.getElementById('prodNameInput').value=p.name; document.getElementById('prodPriceInput').value=p.price; document.getElementById('prodStockInput').value=p.stock;
-            document.getElementById('productModal').style.display='flex';
+            document.getElementById('productFormSection').scrollIntoView({behavior: 'smooth'});
+            document.getElementById('prodFormTitle').innerText = `✎ Edit Produk: ${p.name}`;
+            document.getElementById('prodId').value=p.id; document.getElementById('prodNameInput').value=p.name; 
+            document.getElementById('prodPriceInput').value = new Intl.NumberFormat('id-ID').format(p.price);
+            document.getElementById('prodStockInput').value=p.stock;
+            document.getElementById('cancelEditContainer').style.display='block';
+        }
+        function resetProductForm() {
+            document.getElementById('prodFormTitle').innerText = "➕ Tambah Produk Baru";
+            document.getElementById('prodId').value = ''; document.getElementById('prodNameInput').value = '';
+            document.getElementById('prodPriceInput').value = ''; document.getElementById('prodStockInput').value = '';
+            document.getElementById('cancelEditContainer').style.display = 'none';
         }
         function saveProduct() {
-            const id = document.getElementById('prodId').value;
+            const id = document.getElementById('prodId').value; const name = document.getElementById('prodNameInput').value;
+            const priceRaw = document.getElementById('prodPriceInput').value.replace(/\./g, ''); const stock = document.getElementById('prodStockInput').value;
             const endpoint = id ? '/api/products/update' : '/api/products/add';
-            const body = { id: id, name: document.getElementById('prodNameInput').value, price: document.getElementById('prodPriceInput').value, stock: document.getElementById('prodStockInput').value };
+            const body = { id: id, name: name, price: priceRaw, stock: stock };
             fetch(endpoint, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) }).then(r=>r.json()).then(res => { 
-                if(res.success) { closeModal('productModal'); showSuccess("Produk Disimpan!"); loadProductsTable(); } else alert("Gagal menyimpan."); 
+                if(res.success) { showSuccess("Produk Disimpan!"); loadProductsTable(); resetProductForm(); } else alert("Gagal menyimpan."); 
             });
         }
         function deleteProduct(id) { if(confirm('Hapus produk?')) fetch('/api/products/delete', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ id: id }) }).then(r=>r.json()).then(res => { if(res.success) { showSuccess('Produk Dihapus!'); loadProductsTable(); } else alert("Gagal."); }); }
 
-        // GENERAL
         function openModal(type, id) { currentIdToProcess = id; document.getElementById('confirmModal').style.display = 'flex'; const title = document.getElementById('modalTitle'); const btn = document.getElementById('btnConfirmAction'); const icon = document.getElementById('modalIcon'); if(type === 'accept') { icon.innerText='💸'; title.innerText='Terima?'; btn.style.background='#10b981'; btn.onclick = () => sendUpdate('/api/update', 'Pesanan Diterima!'); } else if(type === 'reject') { icon.innerText='⚠️'; title.innerText='Tolak?'; btn.style.background='#ef4444'; btn.onclick = () => sendUpdate('/api/reject', 'Pesanan Ditolak.'); } else { icon.innerText='🗑️'; title.innerText='Hapus?'; btn.style.background='#ef4444'; btn.onclick = () => { closeModal('confirmModal'); document.getElementById('doubleCheckModal').style.display='flex'; }; } }
         function finalDelete() { closeModal('doubleCheckModal'); sendUpdate('/api/delete', 'Data dihapus permanen.'); }
         function sendUpdate(url, msg) { fetch(url, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({id: currentIdToProcess}) }).then(() => { closeModal('confirmModal'); loadData(); showSuccess(msg); }); }
