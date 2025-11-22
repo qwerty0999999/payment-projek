@@ -12,5 +12,40 @@
     "price": 200000,
     "icon": "📦",
     "stock": 9
+  },
+  {
+    "id": 3,
+    "name": "ayam",
+    "price": "12000",
+    "stock": "23",
+    "icon": "📦"
+  },
+  {
+    "id": 4,
+    "name": "ayam",
+    "price": "12000",
+    "stock": "23",
+    "icon": "📦"
+  },
+  {
+    "id": 5,
+    "name": "ayam",
+    "price": "12000",
+    "stock": "23",
+    "icon": "📦"
+  },
+  {
+    "id": 6,
+    "name": "ayam",
+    "price": "12000",
+    "stock": "23",
+    "icon": "📦"
+  },
+  {
+    "id": 7,
+    "name": "ayam",
+    "price": "12000",
+    "stock": "23",
+    "icon": "📦"
   }
 ]
