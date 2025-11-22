@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Paket A",
+    "price": 100000,
+    "icon": "📦",
+    "stock": 1
+  },
+  {
+    "id": 2,
+    "name": "Paket B",
+    "price": 200000,
+    "icon": "📦",
+    "stock": 9
+  }
+]

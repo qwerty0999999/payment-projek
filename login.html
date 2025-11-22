@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Admin</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div id="successModal">
+        <div class="success-box">
+            <div class="checkmark-circle">✓</div>
+            <h3>Login Berhasil!</h3>
+            <p>Mengalihkan ke Dashboard...</p>
+        </div>
+    </div>
+
+    <div class="background">
+        <div class="login-container">
+            <h2>Login Admin</h2>
+            
+            <form id="loginForm">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="admin">
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; margin-bottom: 5px;">
+                    <label for="password" style="margin:0;">Password</label>
+                    <a href="lupa_password.html" style="font-size: 12px; color: #4e54c8; text-decoration: none;">Lupa Password?</a>
+                </div>
+
+                <input type="password" id="password" name="password" required placeholder="12345">
+                
+                <button type="submit" class="sign-in" id="btnSubmit">Sign In</button>
+            </form>
+            
+            <p id="errorMsg" style="color: #ff4757; display: none; margin-top: 10px; font-weight: bold; font-size: 14px;">Username atau Password Salah!</p>
+            
+            <p style="margin-top: 20px; color: #aaa; font-size: 12px;">&copy; 2025 Sistem Pembayaran</p>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const errorMsg = document.getElementById('errorMsg');
+        const btnSubmit = document.getElementById('btnSubmit');
+        const successModal = document.getElementById('successModal');
+
+        loginForm.onsubmit = async (e) => {
+            e.preventDefault(); 
+            
+            const originalText = btnSubmit.innerText;
+            btnSubmit.innerText = "Checking...";
+            btnSubmit.disabled = true;
+            errorMsg.style.display = 'none';
+
+            const formData = new URLSearchParams(new FormData(loginForm));
+
+            try {
+                const response = await fetch('/auth', { method: 'POST', body: formData });
+                const result = await response.json();
+
+                if (result.success) {
+                    btnSubmit.innerText = "Success";
+                    successModal.style.display = 'flex';
+                    setTimeout(() => { window.location.href = 'admin.html'; }, 1500);
+                } else {
+                    errorMsg.style.display = 'block';
+                    btnSubmit.innerText = originalText;
+                    btnSubmit.disabled = false;
+                    loginForm.style.animation = "shake 0.3s";
+                    setTimeout(() => loginForm.style.animation = "", 300);
+                }
+            } catch (err) {
+                alert("Gagal terhubung ke server.");
+                btnSubmit.innerText = originalText;
+                btnSubmit.disabled = false;
+            }
+        };
+    </script>
+    <style>
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</body>
+</html>

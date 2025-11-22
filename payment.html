@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Pembayaran</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS HALAMAN PEMBAYARAN --- */
+        body { font-family: 'Poppins', sans-serif; background-color: #f8f9fa; margin: 0; }
+
+        header {
+            background: linear-gradient(135deg, #0056b3, #004494); color: white; padding: 20px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        header h1 { margin: 0; font-size: 1.5rem; }
+
+        .container { max-width: 500px; margin: 30px auto; padding: 20px; }
+
+        .card {
+            background: white; padding: 30px; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 20px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .bill-box {
+            text-align: center; background: #e3f2fd; padding: 20px;
+            border-radius: 10px; border: 1px dashed #0056b3; margin-bottom: 20px;
+        }
+        .bill-amount { font-size: 32px; color: #0056b3; font-weight: 800; margin: 5px 0; }
+        .bill-desc { color: #666; font-size: 14px; }
+
+        /* Form Input */
+        input[type="text"], input[type="file"] {
+            width: 100%; padding: 12px; margin: 8px 0 20px;
+            border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box;
+            font-family: inherit;
+        }
+        
+        .btn {
+            background: #28a745; color: white; padding: 14px; border: none;
+            border-radius: 8px; font-weight: bold; width: 100%; cursor: pointer; font-size: 16px;
+            transition: 0.3s;
+        }
+        .btn:hover { background: #218838; transform: translateY(-2px); }
+
+        /* Styles Khusus Copy Invoice */
+        .copy-box {
+            background: #f1f5f9; padding: 15px; margin: 15px 0; border-radius: 8px; 
+            border: 2px dashed #0056b3; cursor: pointer; transition: all 0.2s ease;
+        }
+        .copy-box:hover { background: #e3f2fd; border-style: solid; transform: scale(1.02); }
+        
+        .code-row { display: flex; align-items: center; justify-content: center; gap: 10px; }
+        #showInvoiceId { margin: 0; color: #0056b3; letter-spacing: 1px; font-size: 24px; font-weight: bold; }
+        .copy-icon { font-size: 24px; }
+        .copy-hint { font-size: 11px; color: #666; margin-top: 8px; display: block; text-align: center; }
+
+        /* Toast */
+        #toast { visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 8px; padding: 16px; position: fixed; z-index: 10000; left: 50%; bottom: 30px; transform: translateX(-50%); font-size: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
+        /* Modal */
+        #processingModal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(4px); justify-content: center; align-items: center; animation: fadeIn 0.3s; }
+        .modal-content { background: white; width: 320px; padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.2); animation: slideDown 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #0056b3; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin: 0 auto 15px; }
+        .success-icon { width: 60px; height: 60px; background: #28a745; color: white; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 35px; animation: popIn 0.5s; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes slideDown { from { transform: translateY(-80px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div id="toast">Kode berhasil disalin!</div>
+
+    <div id="processingModal">
+        <div class="modal-content">
+            <div id="stepLoading">
+                <div class="spinner"></div>
+                <h3>Mengirim Data...</h3>
+                <p>Mohon tunggu sebentar</p>
+            </div>
+            <div id="stepSuccess" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h3 style="color: #28a745; margin-bottom: 5px;">Terkirim!</h3>
+                <p style="margin: 0 0 15px; font-size: 14px; color: #555;">Simpan Kode Invoice Anda:</p>
+                <div id="invoiceBox" class="copy-box" onclick="copyInvoice()" title="Klik untuk Menyalin">
+                    <div class="code-row">
+                        <h2 id="showInvoiceId">...</h2>
+                        <span class="copy-icon">📋</span>
+                    </div>
+                    <span class="copy-hint">Tekan kotak untuk salin</span>
+                </div>
+                <p style="font-size: 12px; color: #777; margin-top: 15px;">Gunakan kode ini di menu "Cek Status".</p>
+                <button onclick="window.location.href='index.html'" class="btn" style="margin-top: 10px; padding: 10px 20px; background: #6c757d;">Kembali ke Beranda</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <h1>Konfirmasi Pembayaran</h1>
+    </header>
+
+    <div class="container">
+        <div class="bill-box">
+            <p class="bill-desc">Total Tagihan:</p>
+            <div class="bill-amount">Rp <span id="viewHarga">0</span></div>
+            <div style="margin-top:10px; font-size:14px; color:#333;">
+                <strong>BCA: 123-456-7890</strong><br>a.n PT Teknologi Maju
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 style="margin-top:0;">Form Upload Bukti</h3>
+            <form id="paymentForm">
+                <label>Nama Pengirim (Sesuai Rekening):</label>
+                <input type="text" name="nama" required placeholder="Contoh: Budi Santoso">
+                
+                <label>Bukti Transfer:</label>
+                <input type="file" name="buktiTransfer" required accept="image/*">
+                
+                <input type="hidden" name="produk" id="inputProduk">
+                <input type="hidden" name="harga" id="inputHarga">
+                
+                <button type="submit" class="btn">🚀 Kirim Konfirmasi</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. PERBAIKAN LOGIKA HARGA DISINI ---
+        const params = new URLSearchParams(window.location.search);
+        
+        // Ambil 'price' (dari index.html baru) ATAU 'harga' (jaga-jaga)
+        const rawPrice = params.get('price') || params.get('harga') || '0';
+        const rawProduk = params.get('produk') || 'Produk';
+
+        // Tampilkan ke Layar
+        document.getElementById('viewHarga').innerText = new Intl.NumberFormat('id-ID').format(rawPrice);
+        
+        // Masukkan ke Form Hidden (agar terkirim ke server)
+        document.getElementById('inputHarga').value = rawPrice;
+        document.getElementById('inputProduk').value = rawProduk;
+
+        // --- 2. LOGIKA COPY & UPLOAD ---
+        const form = document.getElementById('paymentForm');
+        const modal = document.getElementById('processingModal');
+        let currentInvoiceId = "";
+
+        function copyInvoice() {
+            if (!currentInvoiceId) return;
+            navigator.clipboard.writeText(currentInvoiceId).then(() => {
+                const toast = document.getElementById("toast");
+                toast.innerText = "📋 Tersalin: " + currentInvoiceId;
+                toast.className = "show";
+                setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+            });
+        }
+
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            
+            // Validasi Manual
+            const fileInput = document.querySelector('input[type="file"]');
+            if(fileInput.files.length > 0 && fileInput.files[0].size > 5 * 1024 * 1024) {
+                alert("File terlalu besar! Maksimal 5MB."); return;
+            }
+
+            modal.style.display = 'flex';
+            
+            try {
+                const res = await fetch('/bayar', { method: 'POST', body: new FormData(form) });
+                const result = await res.json();
+
+                if (result.success) {
+                    currentInvoiceId = result.invoiceId;
+                    document.getElementById('stepLoading').style.display = 'none';
+                    document.getElementById('stepSuccess').style.display = 'block';
+                    document.getElementById('showInvoiceId').innerText = result.invoiceId;
+                } else {
+                    alert("Gagal: " + result.message);
+                    modal.style.display = 'none';
+                }
+            } catch (err) {
+                alert("Gagal kirim data. Cek koneksi."); 
+                modal.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>

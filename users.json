@@ -1,0 +1,14 @@
+[
+  {
+    "username": "super",
+    "password": "super123",
+    "role": "superuser",
+    "isOnline": false
+  },
+  {
+    "username": "admin",
+    "password": "12345",
+    "role": "admin",
+    "isOnline": false
+  }
+]

@@ -1,0 +1,164 @@
+[
+  {
+    "username": "super",
+    "role": "superuser",
+    "loginTime": "2025-11-22T00:25:36.773Z",
+    "logoutTime": null,
+    "duration": "Sedang Aktif..."
+  },
+  {
+    "username": "admin",
+    "role": "admin",
+    "loginTime": "2025-11-22T00:25:49.491Z",
+    "logoutTime": "2025-11-22T00:28:09.523Z",
+    "duration": "2 Menit 20 Detik"
+  },
+  {
+    "username": "admin",
+    "role": "admin",
+    "loginTime": "2025-11-22T00:32:46.190Z",
+    "logoutTime": "2025-11-22T00:33:01.908Z",
+    "duration": "0 Menit 16 Detik"
+  },
+  {
+    "username": "super",
+    "role": "superuser",
+    "loginTime": "2025-11-22T00:33:20.762Z",
+    "logoutTime": "2025-11-22T00:34:44.901Z",
+    "duration": "1 Menit 24 Detik"
+  },
+  {
+    "username": "admin",
+    "role": "admin",
+    "loginTime": "2025-11-22T00:33:38.063Z",
+    "logoutTime": "2025-11-22T00:34:46.188Z",
+    "duration": "1 Menit 8 Detik"
+  },
+  {
+    "username": "super",
+    "role": "superuser",
+    "loginTime": "2025-11-22T00:35:00.372Z",
+    "logoutTime": null,
+    "duration": "Sedang Aktif..."
+  },
+  {
+    "username": "super",
+    "loginTime": "2025-11-22T00:43:13.511Z",
+    "logoutTime": "2025-11-22T00:46:52.830Z",
+    "duration": "3 Menit"
+  },
+  {
+    "username": "admin",
+    "loginTime": "2025-11-22T00:47:44.822Z",
+    "logoutTime": "2025-11-22T00:47:54.401Z",
+    "duration": "0 Menit"
+  },
+  {
+    "username": "super",
+    "loginTime": "2025-11-22T00:48:04.025Z",
+    "logoutTime": "2025-11-22T00:58:13.829Z",
+    "duration": "10 Menit"
+  },
+  {
+    "username": "admin",
+    "loginTime": "2025-11-22T01:01:12.636Z",
+    "logoutTime": null,
+    "duration": "Aktif..."
+  },
+  {
+    "username": "super",
+    "loginTime": "2025-11-22T01:02:43.349Z",
+    "logoutTime": "2025-11-22T01:04:53.830Z",
+    "duration": "2 Menit"
+  },
+  {
+    "username": "super",
+    "loginTime": "2025-11-22T01:06:57.603Z",
+    "logoutTime": "2025-11-22T01:08:18.852Z",
+    "duration": "1 Menit"
+  },
+  {
+    "username": "admin",
+    "loginTime": "2025-11-22T01:09:56.151Z",
+    "logoutTime": "2025-11-22T01:11:14.833Z",
+    "duration": "1 Menit"
+  },
+  {
+    "username": "admin",
+    "loginTime": "2025-11-22T01:11:52.362Z",
+    "logoutTime": "2025-11-22T01:14:09.821Z",
+    "duration": "2 Menit"
+  },
+  {
+    "username": "super",
+    "loginTime": "2025-11-22T01:12:24.887Z",
+    "logoutTime": "2025-11-22T01:14:43.838Z",
+    "duration": "2 Menit"
+  },
+  {
+    "username": "super",
+    "loginTime": "2025-11-22T01:33:19.735Z",
+    "logoutTime": "2025-11-22T01:33:54.750Z",
+    "duration": "0 Menit"
+  },
+  {
+    "username": "admin",
+    "loginTime": "2025-11-22T01:33:59.352Z",
+    "logoutTime": "2025-11-22T01:34:06.462Z",
+    "duration": "0 Menit"
+  },
+  {
+    "username": "super",
+    "loginTime": "2025-11-22T01:36:48.747Z",
+    "logoutTime": "2025-11-22T01:38:01.836Z",
+    "duration": "1 Menit"
+  },
+  {
+    "username": "admin",
+    "loginTime": "2025-11-22T01:39:17.850Z",
+    "logoutTime": "2025-11-22T01:41:08.819Z",
+    "duration": "1 Menit"
+  },
+  {
+    "username": "super",
+    "loginTime": "2025-11-22T01:43:17.851Z",
+    "logoutTime": "2025-11-22T01:46:36.823Z",
+    "duration": "3 Menit"
+  },
+  {
+    "username": "admin",
+    "loginTime": "2025-11-22T01:43:54.733Z",
+    "logoutTime": "2025-11-22T01:45:42.827Z",
+    "duration": "1 Menit"
+  },
+  {
+    "username": "admin",
+    "loginTime": "2025-11-22T01:47:36.059Z",
+    "logoutTime": "2025-11-22T01:49:16.827Z",
+    "duration": "1 Menit"
+  },
+  {
+    "username": "super",
+    "loginTime": "2025-11-22T01:48:26.832Z",
+    "logoutTime": "2025-11-22T01:50:54.821Z",
+    "duration": "2 Menit"
+  },
+  {
+    "time": "2025-11-22T02:10:01.616Z",
+    "username": "admin",
+    "action": "Login",
+    "detail": "Masuk ke sistem"
+  },
+  {
+    "time": "2025-11-22T02:10:11.602Z",
+    "username": "admin",
+    "action": "Hapus Data",
+    "detail": "Menghapus data INV-29241"
+  },
+  {
+    "time": "2025-11-22T02:11:19.819Z",
+    "username": "admin",
+    "action": "Logout",
+    "detail": "Keluar dari sistem"
+  }
+]

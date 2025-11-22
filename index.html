@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Layanan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- STYLE HALAMAN DEPAN --- */
+        body { font-family: 'Poppins', sans-serif; background-color: #f8f9fa; margin: 0; }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0056b3, #004494);
+            color: white; padding: 20px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        header h1 { margin: 0; font-size: 1.5rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+
+        /* Tombol Cek Status */
+        .btn-check-status {
+            background: rgba(255,255,255,0.15); color: white; padding: 10px 25px; border-radius: 50px;
+            text-decoration: none; border: 1px solid rgba(255,255,255,0.3); font-weight: 500; transition: 0.3s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .btn-check-status:hover { background: rgba(255,255,255,0.3); transform: translateY(-2px); }
+
+        /* Container */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+
+        /* Hero Text */
+        .hero { text-align: center; margin-bottom: 50px; }
+        .hero h2 { color: #333; font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; }
+        .hero p { color: #666; font-size: 1.1rem; }
+
+        /* Grid Produk */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Kartu Produk */
+        .product-card {
+            background: white; padding: 40px 30px; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s; border: 1px solid #f0f0f0;
+            display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden;
+        }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 86, 179, 0.15); border-color: #0056b3; }
+
+        /* Ikon Produk */
+        .card-icon {
+            font-size: 45px; margin-bottom: 20px; background: #e3f2fd; color: #0056b3;
+            width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        }
+
+        .product-title { font-size: 1.4rem; margin: 15px 0 10px; color: #333; font-weight: 600; }
+        .product-desc { color: #666; line-height: 1.6; margin-bottom: 25px; font-size: 0.95rem; min-height: 50px; }
+        
+        .price-tag {
+            font-size: 28px; color: #0056b3; font-weight: 700; margin-bottom: 10px; display: block;
+        }
+        .stock-tag { font-size: 12px; color: #888; margin-bottom: 25px; display: block; font-weight: 500; }
+
+        /* Tombol Beli */
+        .btn-buy {
+            background: #28a745; color: white; padding: 12px 30px; border-radius: 10px;
+            text-decoration: none; font-weight: 600; width: 100%; box-sizing: border-box;
+            transition: 0.3s; display: inline-block; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+        .btn-buy:hover { background: #218838; transform: scale(1.02); }
+        
+        /* Tombol Habis */
+        .btn-disabled {
+            background: #ccc; color: #666; pointer-events: none; box-shadow: none; cursor: not-allowed;
+        }
+
+        /* Loading */
+        .loading { text-align: center; color: #999; font-style: italic; margin-top: 50px; }
+
+        @media screen and (max-width: 600px) {
+            header { flex-direction: column; gap: 15px; padding: 20px; }
+            .btn-check-status { width: 100%; justify-content: center; }
+            .hero h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🛒 Toko Layanan</h1>
+        <a href="tracking.html" class="btn-check-status">
+            🔍 Cek Status Pesanan
+        </a>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h2>Pilih Paket Terbaik Anda</h2>
+            <p>Harga transparan, proses otomatis, dan terpercaya.</p>
+        </div>
+
+        <div class="product-grid" id="productContainer">
+            <div class="loading">Sedang memuat produk terbaru...</div>
+        </div>
+    </div>
+
+    <script>
+        // --- LOGIKA SINKRONISASI DATABASE ---
+        async function fetchProducts() {
+            try {
+                const response = await fetch('/api/products');
+                const products = await response.json();
+                const container = document.getElementById('productContainer');
+                
+                container.innerHTML = ''; // Bersihkan loading
+
+                if (products.length === 0) {
+                    container.innerHTML = '<p style="text-align:center; width:100%;">Belum ada produk yang dijual.</p>';
+                    return;
+                }
+
+                products.forEach(p => {
+                    // Format Rupiah
+                    const formattedPrice = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(p.price);
+                    
+                    // Logika Stok Habis
+                    let buttonHtml = '';
+                    let stockText = '';
+
+                    if (p.stock > 0) {
+                        stockText = `Stok Tersedia: ${p.stock}`;
+                        // Link ke Payment membawa data Nama & Harga
+                        buttonHtml = `<a href="payment.html?produk=${encodeURIComponent(p.name)}&price=${p.price}" class="btn-buy">Beli Sekarang</a>`;
+                    } else {
+                        stockText = `<span style="color:red;">Stok Habis!</span>`;
+                        buttonHtml = `<a href="#" class="btn-buy btn-disabled">Stok Habis</a>`;
+                    }
+
+                    // Masukkan ke HTML
+                    const card = `
+                        <div class="product-card">
+                            <div class="card-icon">${p.icon || '📦'}</div>
+                            <h3 class="product-title">${p.name}</h3>
+                            <p class="product-desc">${p.desc || 'Produk berkualitas tinggi untuk kebutuhan Anda.'}</p>
+                            
+                            <span class="price-tag">${formattedPrice}</span>
+                            <span class="stock-tag">${stockText}</span>
+                            
+                            ${buttonHtml}
+                        </div>
+                    `;
+                    container.innerHTML += card;
+                });
+
+            } catch (error) {
+                document.getElementById('productContainer').innerHTML = '<p style="text-align:center; color:red;">Gagal memuat data produk. Pastikan server menyala.</p>';
+            }
+        }
+
+        // Panggil fungsi saat halaman dibuka
+        fetchProducts();
+    </script>
+
+</body>
+</html>
